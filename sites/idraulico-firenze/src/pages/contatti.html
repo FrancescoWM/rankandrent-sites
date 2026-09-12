@@ -1,0 +1,61 @@
+<!--META
+{
+  "title": "Contatti — Idraulico Firenze 24 · pronto intervento e preventivi",
+  "description": "Contatta l'idraulico a Firenze: telefono 24/7 per il pronto intervento, modulo per preventivi e sopralluoghi su caldaie, sanitari, perdite e scarichi.",
+  "schema_extra": {
+    "@type": ["WebPage", "ContactPage"]
+  }
+}
+-->
+<section class="hero">
+  <div class="wrap">
+    <h1>Contatti</h1>
+    <p class="lead">Emergenza idraulica? Chiama: è il modo più veloce. Per lavori programmati (caldaie, sanitari, rifacimenti) usa il modulo: rispondiamo entro poche ore nelle fasce orarie 8–20.</p>
+    <div class="hero-cta">
+      <a class="btn" href="tel:{{PHONE}}" data-track="click_to_call">Chiama ora — {{PHONE_DISPLAY}}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Richiedi un preventivo</h2>
+    <form class="leadform" id="lead-form" data-lead-form method="post" action="{{FORM_ACTION}}">
+      <label for="f-nome">Nome e cognome*</label>
+      <input id="f-nome" name="nome" type="text" required autocomplete="name">
+      <label for="f-tel">Telefono*</label>
+      <input id="f-tel" name="telefono" type="tel" required autocomplete="tel">
+      <label for="f-servizio">Tipo di intervento</label>
+      <select id="f-servizio" name="servizio">
+        <option>Emergenza (perdita, allagamento, scarico bloccato)</option>
+        <option>Ricerca perdita d'acqua</option>
+        <option>Scarico intasato (programmato)</option>
+        <option>Caldaia o scaldabagno (sostituzione/manutenzione)</option>
+        <option>Sanitari, rubinetteria, punto acqua nuovo</option>
+        <option>Altro / non so</option>
+      </select>
+      <label for="f-zona">Zona di Firenze</label>
+      <input id="f-zona" name="zona" type="text" placeholder="es. Novoli, Rifredi, Isolotto, Campo di Marte…">
+      <label for="f-msg">Descrivi il problema</label>
+      <textarea id="f-msg" name="messaggio" rows="4" placeholder="Es. perdita sotto il lavello da ieri, contatore che gira a rubinetti chiusi…"></textarea>
+      <label class="privacy-check" for="f-privacy">
+        <input id="f-privacy" name="privacy" type="checkbox" required>
+        <span>Ho letto l'<a href="{{BASE}}/privacy/">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.*</span>
+      </label>
+      <p><button class="btn" type="submit">Invia richiesta</button></p>
+      <p class="form-note">* Campi obbligatori. Nessuno spam: usiamo telefono ed email solo per rispondere alla tua richiesta. In caso di urgenza, chiama direttamente.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Recapiti e copertura</h2>
+    <ul>
+      <li><strong>Telefono (24/7):</strong> <a href="tel:{{PHONE}}" data-track="click_to_call">{{PHONE_DISPLAY}}</a></li>
+      <li><strong>Email:</strong> {{EMAIL}}</li>
+      <li><strong>Zona di intervento:</strong> Firenze e provincia — <a href="{{BASE}}/quartieri/">dettaglio quartieri</a></li>
+    </ul>
+    <p class="tiny">Il numero riportato è un placeholder di test: alla firma del contratto di locazione viene sostituito con il numero tracciato dell'affittuario.</p>
+  </div>
+</section>

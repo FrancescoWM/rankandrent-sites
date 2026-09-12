@@ -1,0 +1,35 @@
+{
+  "site_id": "traslochi-firenze",
+  "brand": "Traslochi Firenze 24",
+  "tagline": "Piccoli traslochi a Firenze, economici e senza pensieri",
+  "niche": "traslochi",
+  "city": "Firenze",
+  "province": "FI",
+  "region": "Toscana",
+  "schema_type": "MovingCompany",
+  "phone": "+390**0000",
+  "phone_display": "055 000 0000",
+  "ga4_id": "G-XXXXXXXXXX",
+  "email": "info@traslochifirenze24.it",
+  "final_domain": "traslochifirenze24.it",
+  "domains_suggested": [
+    "traslochifirenze24.it (consigliato — head keyword + 24, libero via DNS 12/09)",
+    "piccolitraslochifirenze.it (alternativa sulla sotto-nicchia studenti)",
+    "traslochi-firenze-economici.it (alternativa sulla coda 'economici')"
+  ],
+  "nav": [
+    { "href": "/", "label": "Home" },
+    { "href": "/piccoli-traslochi/", "label": "Piccoli traslochi" },
+    { "href": "/traslochi-prezzi/", "label": "Prezzi" },
+    { "href": "/montacarichi/", "label": "Montacarichi" },
+    { "href": "/quartieri/", "label": "Quartieri" },
+    { "href": "/faq/", "label": "FAQ" },
+    { "href": "/contatti/", "label": "Contatti" }
+  ],
+  "geo": { "lat": 43.7696, "lng": 11.2558 },
+  "area_served_radius_km": 20,
+  "opening_hours": "Mo-Sa 07:00-19:00",
+  "price_range": "€€",
+  "year": 2026,
+  "legal_note": "Sito vetrina. I traslochi sono eseguiti da squadre professionali operanti su Firenze e provincia. Preventivo sempre concordato prima dell'intervento."
+}

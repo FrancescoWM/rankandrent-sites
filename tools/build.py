@@ -105,8 +105,9 @@ def build():
     footer_html = "\n".join(footer_items)
 
     # ---- local business schema (globale, ogni pagina) ---------------------
+    schema_type = cfg.get("schema_type", "Locksmith")
     lb = {
-        "@type": "Locksmith",
+        "@type": schema_type,
         "@id": origin + base + "/#business",
         "name": cfg["brand"],
         "description": cfg["tagline"],

@@ -12,3 +12,4 @@ Mirror pubblico dei siti lead-gen del progetto Rank&Rent (build + deploy GitHub 
 ## Anteprime live
 
 - fabbro-padova: https://francescowm.github.io/rankandrent-sites/fabbro-padova/
+- idraulico-firenze: https://francescowm.github.io/rankandrent-sites/idraulico-firenze/

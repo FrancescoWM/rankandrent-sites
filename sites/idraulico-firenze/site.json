@@ -1,0 +1,36 @@
+{
+  "site_id": "idraulico-firenze",
+  "brand": "Idraulico Firenze 24",
+  "tagline": "Idraulico a Firenze, pronto intervento 24 ore",
+  "niche": "idraulico",
+  "city": "Firenze",
+  "province": "FI",
+  "region": "Toscana",
+  "schema_type": "Plumber",
+  "phone": "+39 055 000 0000",
+  "phone_display": "055 000 0000",
+  "ga4_id": "G-XXXXXXXXXX",
+  "email": "info@idraulicifirenze24.it",
+  "final_domain": "idraulicifirenze24.it",
+  "domains_suggested": [
+    "idraulicifirenze24.it (consigliato — head keyword + 24, verificato libero via DNS 12/09)",
+    "idraulico-firenze-24h.it (alternativa con trattini)",
+    "idraulicifirenzeprontointervento.it (alternativa long-tail sulla sotto-nicchia più preziosa)"
+  ],
+  "nav": [
+    { "href": "/", "label": "Home" },
+    { "href": "/pronto-intervento/", "label": "Pronto intervento" },
+    { "href": "/ricerca-perdite/", "label": "Ricerca perdite" },
+    { "href": "/scarichi-intasati/", "label": "Scarichi intasati" },
+    { "href": "/caldaie-e-sanitari/", "label": "Caldaie e sanitari" },
+    { "href": "/quartieri/", "label": "Quartieri" },
+    { "href": "/prezzi-faq/", "label": "Prezzi e FAQ" },
+    { "href": "/contatti/", "label": "Contatti" }
+  ],
+  "geo": { "lat": 43.7696, "lng": 11.2558 },
+  "area_served_radius_km": 15,
+  "opening_hours": "Mo-Su 00:00-24:00",
+  "price_range": "€€",
+  "year": 2026,
+  "legal_note": "Sito vetrina. Gli interventi sono eseguiti da idraulici professionisti abilitati operanti sul territorio di Firenze e provincia. Preventivo sempre concordato prima dell'intervento."
+}
