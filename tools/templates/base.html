@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+{{NOINDEX}}<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#0a3d62">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a3d62'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="{{BASE}}/assets/style.css">
+{{GA4_HEAD}}
+{{SCHEMA_GLOBAL}}
+{{SCHEMA_PAGE}}
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="{{BASE}}/">{{BRAND}}</a>
+    <button class="navtoggle" aria-expanded="false" aria-controls="sitenav" data-navtoggle>Menu</button>
+    <nav id="sitenav" class="sitenav" aria-label="Principale">{{NAV}}</nav>
+    <a class="call-btn" href="tel:{{PHONE}}" data-track="click_to_call">{{PHONE_DISPLAY}}</a>
+  </div>
+</header>
+{{BREADCRUMB}}
+<main id="main">
+{{BODY}}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>{{BRAND}}</strong> — {{TAGLINE}}</p>
+    <nav aria-label="Piè di pagina" class="footnav">{{FOOTER_LINKS}}</nav>
+    <p class="tiny">{{LEGAL_NOTE}}</p>
+    <p class="tiny">© {{YEAR}} {{BRAND}} · {{CITY}}</p>
+  </div>
+</footer>
+<div class="callbar" aria-hidden="true">
+  <a class="callbar-a" href="tel:{{PHONE}}" data-track="click_to_call">Chiama ora — {{PHONE_DISPLAY}}</a>
+</div>
+<div class="cookiebar" id="cookiebar" hidden>
+  <p>Usiamo cookie tecnici e, con il tuo consenso, Google Analytics (IP anonimizzato) per migliorare il servizio.</p>
+  <div class="cookiebar-btns">
+    <button type="button" class="btn btn-outline" data-consent="denied">Rifiuta</button>
+    <button type="button" class="btn" data-consent="granted">Accetta</button>
+  </div>
+</div>
+<script>
+(function () {
+  var ID = "{{GA4_ID}}";
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+
+  function track(ev, extra) {
+    window.dataLayer.push(Object.assign({ event: ev, page: location.pathname }, extra || {}));
+  }
+  window.rrTrack = track;
+
+  function loadAnalytics() {
+    gtag('config', ID, { anonymize_ip: true });
+    track('page_view');
+    if (ID && ID.indexOf('G-') === 0 && ID !== 'G-XXXXXXXXXX') {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+      document.head.appendChild(s);
+    }
+  }
+
+  try {
+    var saved = localStorage.getItem('rr_consent');
+    if (saved === 'granted') { loadAnalytics(); }
+    else if (saved !== 'denied') {
+      var bar = document.getElementById('cookiebar');
+      if (bar) {
+        bar.hidden = false;
+        bar.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-consent]');
+          if (!b) return;
+          localStorage.setItem('rr_consent', b.getAttribute('data-consent'));
+          bar.hidden = true;
+          if (b.getAttribute('data-consent') === 'granted') { loadAnalytics(); }
+        });
+      }
+    }
+  } catch (err) { /* storage non disponibile */ }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (a) { track('click_to_call', { link_url: a.getAttribute('href') }); }
+  }, true);
+
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.matches('[data-lead-form]')) {
+      track('lead_form_submit', { form_id: f.id || 'lead' });
+    }
+  }, true);
+
+  var tog = document.querySelector('[data-navtoggle]');
+  if (tog) {
+    tog.addEventListener('click', function () {
+      var nav = document.getElementById('sitenav');
+      var open = nav.classList.toggle('open');
+      tog.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
+</script>
+</body>
+</html>

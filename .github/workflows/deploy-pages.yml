@@ -1,0 +1,64 @@
+name: Deploy sites to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sites/**"
+      - "tools/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build all sites (preview mode - noindex, site-id base)
+        run: |
+          mkdir -p dist_root
+          for site in sites/*/; do
+            sid=$(basename "$site")
+            python3 tools/build.py "$site" \
+              --url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" \
+              --base "/$sid" \
+              --noindex
+            rm -f "${site}dist/robots.txt"
+            cp -r "${site}dist" "dist_root/$sid"
+          done
+          printf 'User-agent: *\nAllow: /\n' > dist_root/robots.txt
+          cat > dist_root/sitemap-index.xml <<'XEOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          XEOF
+          for s in dist_root/*/sitemap.xml; do
+            loc="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${s#dist_root/}"
+            echo "  <sitemap><loc>$loc</loc></sitemap>" >> dist_root/sitemap-index.xml
+          done
+          echo "</sitemapindex>" >> dist_root/sitemap-index.xml
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist_root
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

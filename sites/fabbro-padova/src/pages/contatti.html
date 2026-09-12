@@ -1,0 +1,60 @@
+<!--META
+{
+  "title": "Contatti — Fabbro Padova 24 · pronto intervento e preventivi",
+  "description": "Contatta il fabbro a Padova: telefono 24/7 per il pronto intervento, modulo per preventivi e sopralluoghi su porte blindate, cancelli e cambi serratura.",
+  "schema_extra": {
+    "@type": ["WebPage", "ContactPage"]
+  }
+}
+-->
+<section class="hero">
+  <div class="wrap">
+    <h1>Contatti</h1>
+    <p class="lead">Emergenza serrature? Chiama: è il modo più veloce. Per preventivi programmati (cancelli, porte blindate, manutenzioni) usa il modulo: rispondiamo entro poche ore nelle fasce orarie 8–20.</p>
+    <div class="hero-cta">
+      <a class="btn" href="tel:{{PHONE}}" data-track="click_to_call">Chiama ora — {{PHONE_DISPLAY}}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Richiedi un preventivo</h2>
+    <form class="leadform" id="lead-form" data-lead-form method="post" action="{{FORM_ACTION}}">
+      <label for="f-nome">Nome e cognome*</label>
+      <input id="f-nome" name="nome" type="text" required autocomplete="name">
+      <label for="f-tel">Telefono*</label>
+      <input id="f-tel" name="telefono" type="tel" required autocomplete="tel">
+      <label for="f-servizio">Tipo di intervento</label>
+      <select id="f-servizio" name="servizio">
+        <option>Apertura serratura (emergenza)</option>
+        <option>Cambio serratura / cilindro</option>
+        <option>Porta blindata (riparazione/sostituzione)</option>
+        <option>Cancello o basculante</option>
+        <option>Altro / non so</option>
+      </select>
+      <label for="f-zona">Zona di Padova</label>
+      <input id="f-zona" name="zona" type="text" placeholder="es. Arcella, centro, Noventa Padovana…">
+      <label for="f-msg">Descrivi il problema</label>
+      <textarea id="f-msg" name="messaggio" rows="4" placeholder="Es. porta blindata chiusa con chiavi dentro, cilindro che non gira…"></textarea>
+      <label class="privacy-check" for="f-privacy">
+        <input id="f-privacy" name="privacy" type="checkbox" required>
+        <span>Ho letto l'<a href="{{BASE}}/privacy/">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.*</span>
+      </label>
+      <p><button class="btn" type="submit">Invia richiesta</button></p>
+      <p class="form-note">* Campi obbligatori. Nessuno spam: usiamo telefono ed email solo per rispondere alla tua richiesta. In caso di urgenza, chiama direttamente.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Recapiti e copertura</h2>
+    <ul>
+      <li><strong>Telefono (24/7):</strong> <a href="tel:{{PHONE}}" data-track="click_to_call">{{PHONE_DISPLAY}}</a></li>
+      <li><strong>Email:</strong> {{EMAIL}}</li>
+      <li><strong>Zona di intervento:</strong> Padova e provincia — <a href="{{BASE}}/quartieri/">dettaglio quartieri</a></li>
+    </ul>
+    <p class="tiny">Il numero riportato è un placeholder di test: alla firma del contratto di locazione viene sostituito con il numero tracciato dell'affittuario.</p>
+  </div>
+</section>

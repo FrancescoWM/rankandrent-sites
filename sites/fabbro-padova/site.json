@@ -1,0 +1,34 @@
+{
+  "site_id": "fabbro-padova",
+  "brand": "Fabbro Padova 24",
+  "tagline": "Fabbro a Padova, pronto intervento 24 ore",
+  "niche": "fabbro",
+  "city": "Padova",
+  "province": "PD",
+  "region": "Veneto",
+  "phone": "+390000000000",
+  "phone_display": "049 000 0000",
+  "ga4_id": "G-XXXXXXXXXX",
+  "email": "info@fabbropadova24.it",
+  "final_domain": "fabbropadova24.it",
+  "domains_suggested": [
+    "fabbropadova24.it (consigliato — head keyword + 24, registrabile)",
+    "fabbro-padova-24h.it (alternativa con trattini)",
+    "serraturistapadova.it (brand differenziato sulla sotto-nicchia più preziosa)"
+  ],
+  "nav": [
+    { "href": "/", "label": "Home" },
+    { "href": "/apertura-serrature/", "label": "Apertura serrature" },
+    { "href": "/cambio-serrature/", "label": "Cambio serrature" },
+    { "href": "/porte-blinde-cancelli/", "label": "Porte blindate e cancelli" },
+    { "href": "/quartieri/", "label": "Quartieri" },
+    { "href": "/prezzi-faq/", "label": "Prezzi e FAQ" },
+    { "href": "/contatti/", "label": "Contatti" }
+  ],
+  "geo": { "lat": 45.4064, "lng": 11.8768 },
+  "area_served_radius_km": 15,
+  "opening_hours": "Mo-Su 00:00-24:00",
+  "price_range": "€€",
+  "year": 2026,
+  "legal_note": "Sito vetrina. Gli interventi sono eseguiti da fabbri professionisti abilitati operanti sul territorio di Padova e provincia. Preventivo sempre concordato prima dell'intervento."
+}
