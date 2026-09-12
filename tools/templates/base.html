@@ -101,6 +101,15 @@
     var f = e.target;
     if (f && f.matches('[data-lead-form]')) {
       track('lead_form_submit', { form_id: f.id || 'lead' });
+      if ((f.getAttribute('action') || '#') === '#') {
+        e.preventDefault();
+        var ok = document.createElement('div');
+        ok.className = 'card';
+        ok.style.marginTop = '1rem';
+        ok.innerHTML = '<h3>Richiesta registrata</h3><p>Grazie: ti ricontattiamo presto al numero indicato. Per urgenze chiama direttamente '
+          + '<a href="tel:' + '{{PHONE}}' + '">{{PHONE_DISPLAY}}</a>.</p>';
+        f.replaceWith(ok);
+      }
     }
   }, true);
 
