@@ -27,12 +27,13 @@ jobs:
       - name: Build all sites (preview mode - noindex, site-id base)
         run: |
           mkdir -p dist_root
-          PAGES_ORIGIN="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          PAGES_HOST="https://$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]').github.io"
+          REPO_NAME="${{ github.event.repository.name }}"
           for site in sites/*/; do
             sid=$(basename "$site")
             python3 tools/build.py "$site" \
-              --url "$PAGES_ORIGIN" \
-              --base "/${{ github.event.repository.name }}/$sid" \
+              --url "$PAGES_HOST" \
+              --base "/$REPO_NAME/$sid" \
               --noindex
             rm -f "${site}dist/robots.txt"
             cp -r "${site}dist" "dist_root/$sid"
@@ -53,7 +54,7 @@ jobs:
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
           XEOF
           for s in dist_root/*/sitemap.xml; do
-            loc="$PAGES_ORIGIN/${s#dist_root/}"
+            loc="$PAGES_HOST/$REPO_NAME/${s#dist_root/}"
             echo "  <sitemap><loc>$loc</loc></sitemap>" >> dist_root/sitemap-index.xml
           done
           echo "</sitemapindex>" >> dist_root/sitemap-index.xml
