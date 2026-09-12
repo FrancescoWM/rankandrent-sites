@@ -37,6 +37,16 @@ jobs:
             cp -r "${site}dist" "dist_root/$sid"
           done
           printf 'User-agent: *\nAllow: /\n' > dist_root/robots.txt
+          {
+            echo '<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Rank&Rent — anteprime siti</title>'
+            echo '<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:3rem auto;padding:0 1rem;line-height:1.6}a{color:#0a3d62}</style>'
+            echo '</head><body><h1>Rank&Rent — anteprime siti</h1><ul>'
+            for s in dist_root/*/; do
+              sid=$(basename "$s")
+              echo "<li><a href=\"$sid/\">$sid</a></li>"
+            done
+            echo '</ul><p class="tiny">Anteprime noindex: indicizzazione attiva al bind del dominio finale.</p></body></html>'
+          } > dist_root/index.html
           cat > dist_root/sitemap-index.xml <<'XEOF'
           <?xml version="1.0" encoding="UTF-8"?>
           <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
